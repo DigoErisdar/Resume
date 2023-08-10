@@ -1,0 +1,55 @@
+//TODO: Думаю его место где-то в другом разделе
+.state-loading,
+.icon-load.progress-disabled {
+    position: relative;
+    user-select: none;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.state-loading > * {
+    filter: blur(2px);
+}
+
+.state-loading:after,
+.icon-load.progress-disabled:after {
+    background-color: #ddd;
+    border-radius: 3px;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+@keyframes pulse-bg {
+    0% {
+        left: -105%;
+    }
+    100% {
+        left: 110%;
+    }
+}
+
+.state-loading:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -1%;
+    bottom: -1%;
+    width: 1%;
+    box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 1;
+    transform: rotate(15deg);
+    animation: pulse-bg 3s infinite linear;
+}
+
+@keyframes loader {
+    100% {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn);
+    }
+}
