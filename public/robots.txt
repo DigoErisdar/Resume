@@ -1,12 +1,7 @@
 User-Agent: *
-Disallow: /search/
 Disallow: /docs/
 Disallow: /login
 Disallow: /logout
-Disallow: /*activate?
-Disallow: /personal
-Disallow: /orders
-Disallow: /reset
 Disallow: /*sberbank=
 Disallow: /*utm_position=
 Disallow: /*?etext=

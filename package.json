@@ -4,17 +4,21 @@
   "private": true,
   "scripts": {
     "dev": "vite",
+    "test": "jest src",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
-    "test:unit": "vitest",
     "build-only": "vite build",
-    "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@types/jest": "^29.5.11",
+    "eslint-plugin-jest": "^27.6.3",
+    "jest": "^29.7.0",
     "pinia": "^2.0.36",
+    "ts-jest": "^29.1.2",
     "vue": "^3.3.2",
+    "vue-jest": "^5.0.0-alpha.10",
     "vue-router": "^4.2.0"
   },
   "devDependencies": {
@@ -28,7 +32,7 @@
     "@vitejs/plugin-vue-jsx": "^3.0.1",
     "@vue/eslint-config-prettier": "^7.1.0",
     "@vue/eslint-config-typescript": "^11.0.3",
-    "@vue/test-utils": "^2.3.2",
+    "@vue/test-utils": "^2.4.0-alpha.2",
     "@vue/tsconfig": "^0.4.0",
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
@@ -42,9 +46,8 @@
     "start-server-and-test": "^2.0.0",
     "typescript": "5.0.4",
     "vite": "^4.3.5",
-    "vite-plugin-checker": "^0.6.0",
+    "vite-plugin-checker": "^0.1.0",
     "vite-svg-loader": "^4.0.0",
-    "vitest": "^0.31.0",
     "vue-eslint-parser": "^9.3.1",
     "vue-tsc": "^1.6.5"
   }

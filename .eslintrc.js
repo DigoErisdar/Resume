@@ -2,6 +2,9 @@
 require('@rushstack/eslint-patch/modern-module-resolution')
 module.exports = {
     root: true,
+    env: {
+        jest: true,
+    },
     parser: 'vue-eslint-parser',
     extends: [
         'eslint:recommended',
@@ -38,7 +41,7 @@ module.exports = {
         'vue/no-unused-vars': 'error',
         // "@typescript-eslint/no-unused-vars": "off",
         'vue/html-indent': ['error', 4], // https://eslint.vuejs.org/rules/html-indent.html#vue-html-indent
-        'vue/script-indent': ['error', 4, { baseIndent: 1 }], // https://eslint.vuejs.org/rules/script-indent.html#vue-script-indent
+        'vue/script-indent': ['error', 4, {baseIndent: 1}], // https://eslint.vuejs.org/rules/script-indent.html#vue-script-indent
         'vue/require-typed-ref': 'error', // https://eslint.vuejs.org/rules/require-typed-ref.html#rule-details
         'vue/no-static-inline-styles': [
             'error',
