@@ -1,8 +1,10 @@
 import './app/styles/index.scss'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import App from '@/app/App.vue'
 import router from '@/app/providers/router'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-ignore
+import App from '@/app/App.vue'
 
 const app = createApp(App)
 
