@@ -12,9 +12,13 @@
 
 <script setup lang="ts">
     import { computed } from 'vue'
-    import { Url } from '@/shared/types/navigation.ts'
 
-    const props = defineProps<Url>()
+    interface Props {
+        label: string
+        src: string
+    }
+
+    const props = defineProps<Props>()
     const component = computed(() => (props.src.startsWith('http') ? 'a' : 'RouterLink'))
 </script>
 
