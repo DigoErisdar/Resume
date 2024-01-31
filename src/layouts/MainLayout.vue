@@ -3,7 +3,7 @@
         <main>
             <aside class="sidebar">
                 <div class="sidebar-header">
-                    Daniil Galkin
+                    daniil-galkin.vue
                 </div>
             </aside>
             <div class="content">
@@ -27,6 +27,12 @@
         grid-template-rows: 1fr minmax(50px, auto);
         background: var(--primary-bg);
         --aside-width: 320px;
+        --height-header: 56px;
+
+        .content {
+            display: grid;
+            grid-template-rows: var(--height-header) 1fr;
+        }
 
         main {
             display: grid;
@@ -39,7 +45,7 @@
         width: 100%;
 
         &-header {
-            height: 56px;
+            height: var(--height-header);
             border-bottom: 1px solid var(--color-line);
             display: flex;
             align-items: center;
