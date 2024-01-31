@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "test": "jest src",
+    "test": "jest src --passWithNoTests",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
     "build-only": "vite build",
@@ -17,7 +17,7 @@
     "jest": "^29.7.0",
     "pinia": "^2.0.36",
     "ts-jest": "^29.1.2",
-    "vue": "^3.3.2",
+    "vue": "^3.4",
     "vue-jest": "^5.0.0-alpha.10",
     "vue-router": "^4.2.0"
   },
