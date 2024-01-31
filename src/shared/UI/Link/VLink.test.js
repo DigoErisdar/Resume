@@ -1,7 +1,5 @@
-import VLink from './VLink.vue'
-
-describe('Link', () => {
-    it('link', () => {
-        console.log(VLink)
+describe('[Component] Link', () => {
+    it('render', () => {
+        // const link = render(VLink)
     })
 })
