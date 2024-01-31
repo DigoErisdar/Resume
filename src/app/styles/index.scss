@@ -27,22 +27,27 @@ body,
   min-width: 320px;
 }
 
-h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: 'Fira Code';
+  font-size: var(--fs-subtitle);
+}
+
+h1 {
+  font-size: var(--fs-title);
 }
 
 * {
   padding: 0;
   margin: 0;
   outline: 0;
-  line-height: 1.2;
+  line-height: 1;
   box-sizing: border-box;
   font-family: 'Fira Code';
+  font-size: var(--fs-default);
+  color: var(--secondary);
   font-weight: 400;
 }
 

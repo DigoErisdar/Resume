@@ -1,8 +1,5 @@
 <template>
     <header class="header">
-        <div class="header-logo">
-            Digo Eisdar
-        </div>
         <BaseNavigation
             :urls="urls"
             class="header-navigation"
@@ -23,8 +20,9 @@
 <style scoped lang="scss">
     .header {
         display: grid;
-        grid-template-columns: minmax(auto, 300px) 1fr;
+        grid-template-columns: 1fr;
         border-bottom: 1px solid var(--color-line);
+        min-height: 56px;
 
         &-navigation {
             &:deep(.link) {
@@ -40,14 +38,6 @@
             &:deep(:hover) {
                 border-bottom-color: var(--accent-orange);
             }
-        }
-
-        &-logo {
-            color: var(--secondary);
-            font-size: var(--fs-label);
-            padding: var(--padding);
-            display: flex;
-            align-items: center;
         }
     }
 </style>
