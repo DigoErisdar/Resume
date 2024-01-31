@@ -1,13 +1,12 @@
-import {fileURLToPath} from 'url'
-import {URL} from 'url'
+import { fileURLToPath, URL } from 'url'
 import checker from 'vite-plugin-checker'
-import {ConfigEnv, defineConfig} from 'vite'
+import { ConfigEnv, defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import svgLoader from 'vite-svg-loader'
 
-export default (options : ConfigEnv) => {
-    const {  mode } = options
+export default (options: ConfigEnv) => {
+    const { mode } = options
 
     const isDev = mode === 'development'
 
@@ -33,10 +32,9 @@ export default (options : ConfigEnv) => {
         css: {
             modules: {
                 localsConvention: 'camelCase',
-                generateScopedName: isDev ? '[local]__[hash:base64:5]' : '[hash:base64:8]'//  production
+                generateScopedName: isDev ? '[local]__[hash:base64:5]' : '[hash:base64:8]' //  production
             }
         },
         base: '/vue3vite/'
     })
-
 }

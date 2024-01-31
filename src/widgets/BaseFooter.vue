@@ -1,22 +1,13 @@
 <template>
     <footer class="footer">
         <span class="footer-label">find in me:</span>
-        <BaseNavigation :urls="urls">
-            <template #default="{ item }">
-                <VLink
-                    v-bind="item"
-                    class="footer-link"
-                    :class="item.classes"
-                />
-            </template>
-        </BaseNavigation>
+        <BaseNavigation :urls="urls" />
     </footer>
 </template>
 
 <script setup lang="ts">
     import BaseNavigation from '@/widgets/BaseNavigation.vue'
     import { shallowRef } from 'vue'
-    import VLink from '@/shared/UI/Link/VLink.vue'
     import { Url } from '@/shared/types/navigation.ts'
 
     const urls = shallowRef<Url[]>([
@@ -44,11 +35,15 @@
             padding: var(--padding);
         }
 
-        &-link {
+        &:deep(.link) {
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 0 16px;
+        }
+
+        &:deep(.right) {
+            margin-left: auto;
         }
     }
 </style>
