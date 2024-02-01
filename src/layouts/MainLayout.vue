@@ -2,9 +2,7 @@
     <div class="MainLayout">
         <main>
             <aside class="sidebar">
-                <div class="sidebar-header">
-                    daniil-galkin.vue
-                </div>
+                <div class="sidebar-header">daniil-galkin.vue</div>
             </aside>
             <div class="content">
                 <BaseHeader />

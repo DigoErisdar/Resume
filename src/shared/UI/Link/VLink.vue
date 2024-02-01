@@ -1,17 +1,13 @@
 <template>
-    <component
-        :is="component"
-        :to="src"
-        :href="src"
-        class="link"
-        active-class="active"
-    >
+    <component :is="component" :to="src" :href="src" class="link" active-class="active">
         <slot>{{ label }}</slot>
     </component>
 </template>
 
 <script setup lang="ts">
     import { computed } from 'vue'
+
+    //TODO: Jest не дает использовать импортированные типы в Props
 
     interface Props {
         label: string
