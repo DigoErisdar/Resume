@@ -27,6 +27,7 @@ const githubPage = "https://github.com/DigoErisdar/Tetris3";`)
         align-items: center;
         height: 100%;
         gap: 55px;
+        padding: 50px 0;
 
         &-info {
             &__subtitle {

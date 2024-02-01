@@ -47,7 +47,7 @@
 <style lang="scss" scoped>
     .container {
         display: grid;
-        grid-template-columns: 1fr auto;
+        grid-template-columns: 250px auto;
         grid-gap: 15px;
     }
 
@@ -55,6 +55,11 @@
         border-radius: 8px;
         background: rgba(1, 22, 39, 0.84);
         box-shadow: 1px 5px 11px 0 rgba(2, 18, 27, 0.71) inset;
+        overflow: hidden;
+
+        :deep(table) {
+            margin-bottom: -2px;
+        }
 
         &-info {
             margin-top: 20px;
