@@ -28,6 +28,6 @@ export default (options: ConfigEnv) => {
                 generateScopedName: isDev ? '[local]__[hash:base64:5]' : '[hash:base64:8]' //  production
             }
         },
-        base: '/vue3vite/'
+        base: '/Resume/'
     })
 }

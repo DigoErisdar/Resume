@@ -14,7 +14,7 @@
     <Component
         :is="route.meta.layoutComponent"
         ref="MainContainer"
-        :style="{ minHeight: height + 'px' }"
+        :style="{ height: height + 'px' }"
     >
         <slot />
     </Component>

@@ -25,10 +25,18 @@ const githubPage = "https://github.com/DigoErisdar/Tetris3";`)
     .index {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         height: 100%;
         gap: 55px;
         padding: 50px 0;
-
+        overflow: auto;
+        container-type: inline-size;
+        @container (max-width: 700px) {
+            &-game,
+            .index-info-code {
+                display: none;
+            }
+        }
         &-info {
             &__subtitle {
                 color: var(--light-color);

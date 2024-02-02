@@ -1,9 +1,7 @@
 <template>
     <div class="MainLayout">
         <main>
-            <aside class="sidebar">
-                <div class="sidebar-header">daniil-galkin.vue</div>
-            </aside>
+            <BaseSidebar />
             <div class="content">
                 <BaseHeader />
                 <slot></slot>
@@ -16,6 +14,7 @@
 <script setup lang="ts">
     import BaseFooter from '@/widgets/BaseFooter.vue'
     import BaseHeader from '@/widgets/BaseHeader.vue'
+    import BaseSidebar from '@/widgets/BaseSidebar.vue'
 </script>
 
 <style scoped lang="scss">
@@ -28,26 +27,17 @@
         --height-header: 56px;
 
         .content {
+            flex-grow: 1;
             display: grid;
             grid-template-rows: var(--height-header) 1fr;
         }
 
         main {
-            display: grid;
-            grid-template-columns: var(--aside-width) 1fr;
-        }
-    }
-
-    .sidebar {
-        height: 100%;
-        width: 100%;
-
-        &-header {
-            height: var(--height-header);
-            border-bottom: 1px solid var(--color-line);
             display: flex;
-            align-items: center;
-            padding: var(--padding);
+            flex-direction: row;
+            overflow: hidden;
+            container-type: size;
+            container-name: main;
         }
     }
 </style>
