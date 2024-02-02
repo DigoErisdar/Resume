@@ -1,10 +1,12 @@
 <template>
     <aside class="sidebar">
-        <div class="sidebar-header">daniil-galkin.vue</div>
+        <div class="sidebar-header">{{ name }}</div>
     </aside>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+    defineProps<{ name: string }>()
+</script>
 
 <style scoped lang="scss">
     .sidebar {

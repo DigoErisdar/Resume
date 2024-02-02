@@ -1,9 +1,9 @@
 <template>
     <div class="MainLayout">
         <main>
-            <BaseSidebar class="sidebar" />
+            <BaseSidebar class="sidebar" :name />
             <div class="content">
-                <BaseHeader />
+                <BaseHeader :name />
                 <slot></slot>
             </div>
         </main>
@@ -15,6 +15,9 @@
     import BaseFooter from '@/widgets/BaseFooter.vue'
     import BaseHeader from '@/widgets/BaseHeader.vue'
     import BaseSidebar from '@/widgets/BaseSidebar.vue'
+    import { shallowRef } from 'vue'
+
+    const name = shallowRef('daniil-galkin.vue')
 </script>
 
 <style scoped lang="scss">

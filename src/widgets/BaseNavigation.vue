@@ -1,15 +1,8 @@
 <template>
-    <nav class="navigation">
+    <nav class="navigation" :class="[{ isColumn }]">
         <ul>
-            <li
-                v-for="(url, index) in urls"
-                :key="url.src"
-                :class="url.classes"
-            >
-                <slot
-                    :item="url"
-                    :index="index"
-                >
+            <li v-for="(url, index) in urls" :key="url.src" :class="url.classes">
+                <slot :item="url" :index="index">
                     <VLink v-bind="url" />
                 </slot>
             </li>
@@ -23,6 +16,7 @@
 
     interface Props {
         urls: Url[]
+        isColumn?: boolean
     }
 
     defineProps<Props>()
@@ -33,6 +27,27 @@
         width: 100%;
         height: 100%;
         overflow: hidden;
+
+        &.isColumn {
+            ul {
+                flex-direction: column;
+                height: auto;
+                max-height: 100%;
+
+                li {
+                    width: 100%;
+                    border-left: none;
+                    border-right: none;
+                    border-bottom: 1px solid var(--color-line);
+                    min-height: 55px;
+
+                    a {
+                        height: auto;
+                        max-height: fit-content;
+                    }
+                }
+            }
+        }
     }
 
     ul {
