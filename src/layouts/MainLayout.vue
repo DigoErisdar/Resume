@@ -1,7 +1,7 @@
 <template>
     <div class="MainLayout">
         <main>
-            <BaseSidebar />
+            <BaseSidebar class="sidebar" />
             <div class="content">
                 <BaseHeader />
                 <slot></slot>
@@ -18,6 +18,8 @@
 </script>
 
 <style scoped lang="scss">
+    @import '@/app/styles/variables/mixins';
+
     .MainLayout {
         display: grid;
         grid-template-columns: 1fr;
@@ -38,6 +40,12 @@
             overflow: hidden;
             container-type: size;
             container-name: main;
+        }
+    }
+
+    @include _xs {
+        .sidebar {
+            display: none;
         }
     }
 </style>
