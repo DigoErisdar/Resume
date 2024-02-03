@@ -2,7 +2,7 @@
     <header class="header">
         <div class="header-top" @click="isOpenMenu = !isOpenMenu">{{ name }}</div>
         <div class="header-navigation" :class="{ close: !isOpenMenu }">
-            <BaseNavigation :urls="urls" is-column @click="isOpenMenu =g false" />
+            <BaseNavigation :urls="urls" is-column @click="isOpenMenu = false" />
         </div>
     </header>
 </template>
