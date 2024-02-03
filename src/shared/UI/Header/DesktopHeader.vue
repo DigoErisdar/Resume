@@ -1,5 +1,6 @@
 <template>
     <header class="header">
+        <div class="header-name">{{ name }}</div>
         <BaseNavigation :urls="urls" class="header-navigation" />
     </header>
 </template>
@@ -10,6 +11,7 @@
 
     interface Props {
         urls: Url[]
+        name: string
     }
 
     defineProps<Props>()
@@ -17,10 +19,18 @@
 
 <style scoped lang="scss">
     .header {
-        display: grid;
-        grid-template-columns: 1fr;
+        display: flex;
         border-bottom: 1px solid var(--color-line);
-        min-height: 56px;
+        height: 100%;
+
+        &-name {
+            flex-shrink: 0;
+            max-width: var(--aside-width);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: var(--padding);
+        }
 
         &-navigation {
             &:deep(.link) {

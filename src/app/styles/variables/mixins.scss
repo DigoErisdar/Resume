@@ -21,3 +21,15 @@
     @content
   }
 }
+
+@mixin _xlg {
+  @media (min-width: 1904px) {
+    @content
+  }
+}
+
+@mixin font($fs:var(--fs-default), $color: var(--secondary)) {
+  color: $color;
+  font-size: $fs;
+  transition: .3s font-size;
+}

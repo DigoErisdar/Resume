@@ -25,7 +25,13 @@ export default (options: ConfigEnv) => {
         css: {
             modules: {
                 localsConvention: 'camelCase',
-                generateScopedName: isDev ? '[local]__[hash:base64:5]' : '[hash:base64:8]' //  production
+                generateScopedName: isDev ? '[local]__[hash:base64:5]' : '[hash:base64:8]' //  production,
+            },
+            preprocessorOptions: {
+                scss: {
+                    additionalData: `
+    @import '@/app/styles/variables/mixins';\n`
+                }
             }
         },
         base: '/Resume/'

@@ -42,6 +42,10 @@
                     min-height: 55px;
 
                     a {
+                        flex-grow: 1;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
                         height: auto;
                         max-height: fit-content;
                     }
@@ -69,6 +73,7 @@
             justify-content: center;
             color: var(--secondary);
             transition: 0.15s;
+            flex-shrink: 0;
 
             &:first-child {
                 border-left: 1px solid var(--color-line);

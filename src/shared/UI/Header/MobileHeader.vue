@@ -1,8 +1,8 @@
 <template>
-    <header class="header" @click="isOpenMenu = !isOpenMenu">
-        <div class="header-top">{{ name }}</div>
+    <header class="header">
+        <div class="header-top" @click="isOpenMenu = !isOpenMenu">{{ name }}</div>
         <div class="header-navigation" :class="{ close: !isOpenMenu }">
-            <BaseNavigation :urls="urls" is-column />
+            <BaseNavigation :urls="urls" is-column @click="isOpenMenu =g false" />
         </div>
     </header>
 </template>

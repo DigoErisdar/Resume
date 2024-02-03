@@ -22,8 +22,6 @@ const githubPage = "https://github.com/DigoErisdar/Tetris3";`)
 </script>
 
 <style scoped lang="scss">
-    @import '@/app/styles/variables/mixins';
-
     .index {
         display: flex;
         align-items: center;
@@ -33,17 +31,23 @@ const githubPage = "https://github.com/DigoErisdar/Tetris3";`)
         padding: 50px 0;
         overflow: auto;
         container-type: inline-size;
-        @container (max-width: 700px) {
+        margin-left: var(--aside-width);
+        @container (max-width: 660px) {
             &-game,
             .index-info-code {
                 display: none;
             }
         }
-        @include _xs {
+        @include _xlg {
+            margin: 0;
+            justify-content: center;
+        }
+        @include _sm {
             padding: var(--padding);
             align-items: center;
             justify-content: center;
             text-align: center;
+            margin-left: 0;
         }
 
         &-info {

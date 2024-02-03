@@ -1,7 +1,7 @@
 @import 'reset';
-@import 'variables/global';
 @import 'loading';
 @import "fonts/firaCode";
+@import 'variables/global';
 
 *:disabled,
 *.disabled {
@@ -32,11 +32,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: var(--fs-subtitle);
+  @include font(var(--fs-subtitle));
 }
 
 h1 {
-  font-size: var(--fs-title);
+  @include font(var(--fs-title));
 }
 
 * {
