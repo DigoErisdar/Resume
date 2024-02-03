@@ -1,6 +1,6 @@
 <template>
     <MobileHeader :urls :name v-if="bp === Breakpoints.xs" />
-    <DesktopHeader :urls v-else />
+    <DesktopHeader :urls :name v-else />
 </template>
 
 <script setup lang="ts">

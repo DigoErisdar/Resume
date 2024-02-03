@@ -1,11 +1,8 @@
 <template>
     <div class="MainLayout">
-        <main>
-            <BaseSidebar class="sidebar" :name />
-            <div class="content">
-                <BaseHeader :name />
-                <slot></slot>
-            </div>
+        <BaseHeader :name />
+        <main class="content">
+            <slot></slot>
         </main>
         <BaseFooter />
     </div>
@@ -14,41 +11,26 @@
 <script setup lang="ts">
     import BaseFooter from '@/widgets/BaseFooter.vue'
     import BaseHeader from '@/widgets/BaseHeader.vue'
-    import BaseSidebar from '@/widgets/BaseSidebar.vue'
     import { shallowRef } from 'vue'
 
     const name = shallowRef('daniil-galkin.vue')
 </script>
 
 <style scoped lang="scss">
-    @import '@/app/styles/variables/mixins';
-
     .MainLayout {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr minmax(50px, auto);
+        grid-template-rows: 50px 1fr auto;
         background: var(--primary-bg);
         --aside-width: 320px;
         --height-header: 56px;
 
-        .content {
-            flex-grow: 1;
-            display: grid;
-            grid-template-rows: var(--height-header) 1fr;
-        }
-
         main {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             overflow: hidden;
             container-type: size;
             container-name: main;
-        }
-    }
-
-    @include _xs {
-        .sidebar {
-            display: none;
         }
     }
 </style>

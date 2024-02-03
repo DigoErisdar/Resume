@@ -69,8 +69,7 @@
             flex-direction: column;
 
             > p {
-                color: var(--secondary-white);
-                font-size: var(--fs-label);
+                @include font(var(--fs-label), var(--secondary-white));
             }
         }
     }

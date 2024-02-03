@@ -26,8 +26,7 @@
         display: flex;
         border-top: 1px solid var(--color-line);
         align-items: center;
-        font-size: var(--fs-label);
-        color: var(--secondary);
+        @include font(var(--fs-label), var(--secondary));
         height: 100%;
 
         &-label {

@@ -1,3 +1,5 @@
+@import "./mixins";
+
 :root {
   // variables
   --container: 1366px;
@@ -29,4 +31,11 @@
   --fs-default: 18px;
   --fs-label: 16px;
   --fs-code: 14px;
+  @include _xs {
+    --fs-title: 32px;
+    --fs-subtitle: 24px;
+    --fs-default: 16px;
+    --fs-label: 14px;
+    --fa-code: 12px;
+  }
 }
