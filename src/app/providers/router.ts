@@ -1,14 +1,20 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 import { getRouteMain } from '@/shared/const/router'
-import HomePage from '@/pages/IndexPage/ui/IndexPage.vue'
 import { loadLayoutMiddleware } from '@/app/providers/router/middleware'
+import IndexPage from '@/pages/IndexPage/ui/IndexPage.vue'
+import TestPage from '@/pages/testPage/ui/testPage.vue'
 
 const routes: Array<RouteRecordRaw> = [
     {
         path: getRouteMain(),
         name: 'home',
-        component: HomePage
+        component: IndexPage
+    },
+    {
+        path: '/test/',
+        name: 'test',
+        component: TestPage
     }
 ]
 

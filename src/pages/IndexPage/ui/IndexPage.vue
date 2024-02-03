@@ -15,7 +15,7 @@
 <script setup lang="ts">
     import VCode from '@/shared/UI/Code/VCode.vue'
     import { ref } from 'vue'
-    import VGame from '@/shared/libs/Tetris/components/VGame.vue'
+    import VGame from '@/widgets/VGame.vue'
 
     const code = ref(`//link game
 const githubPage = "https://github.com/DigoErisdar/Tetris3";`)
