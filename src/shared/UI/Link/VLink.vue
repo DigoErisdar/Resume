@@ -1,13 +1,19 @@
 <template>
-    <component :is="component" :to="src" :href="src" class="link" active-class="active">
+    <component
+        :is="component"
+        :to="src"
+        :href="src"
+        class="link"
+        active-class="active"
+        @click="onClick"
+    >
         <slot>{{ label }}</slot>
     </component>
 </template>
 
 <script setup lang="ts">
     import { computed } from 'vue'
-
-    //TODO: Jest не дает использовать импортированные типы в Props
+    import { TargetEvent } from '@/shared/types/types.ts'
 
     interface Props {
         label: string
@@ -16,6 +22,13 @@
 
     const props = defineProps<Props>()
     const component = computed(() => (props.src.startsWith('http') ? 'a' : 'RouterLink'))
+    const emit = defineEmits<{
+        (e: 'click', data: { event: TargetEvent<HTMLLinkElement> }): void
+    }>()
+
+    function onClick(event: TargetEvent<HTMLLinkElement>) {
+        emit('click', { event })
+    }
 </script>
 
 <style scoped lang="scss">

@@ -2,7 +2,8 @@
     <Component
         :is="route.meta.layoutComponent"
         ref="MainContainer"
-        :style="{ height: height + 'px' }"
+        :style="{ height: height - 20 + 'px' }"
+        class="core"
     >
         <slot />
     </Component>
@@ -25,4 +26,10 @@
     useHasModals(MainContainer)
     onMounted(init)
 </script>
-<style scoped></style>
+<style scoped lang="scss">
+    .core {
+        margin: 10px;
+        border-radius: 8px;
+        border: 1px solid var(--color-line);
+    }
+</style>

@@ -1,6 +1,21 @@
 <template>
     <div class="container">
         <div :class="style.VGame" class="game">
+            <div class="game-status">
+                <div
+                    v-if="actionOnStatus"
+                    class="game-status-text"
+                    :class="{ visibility: status && actionOnStatus.message }"
+                >
+                    {{ actionOnStatus.message }}
+                </div>
+                <VButton
+                    v-if="actionOnStatus"
+                    class="game-status-button"
+                    :class="{ visibility: status }"
+                    v-bind="actionOnStatus.button"
+                />
+            </div>
             <TableWidget :matrix="tetris.game.matrix" />
         </div>
         <div>
@@ -29,11 +44,26 @@
     import useTetris from '@/shared/libs/Tetris/composables/useTetris.ts'
     import TableWidget from '@/shared/libs/Tetris/components/TableWidget.vue'
     import style from '@/shared/libs/Tetris/components/VGame.module.scss'
-    import { onMounted } from 'vue'
+    import { computed } from 'vue'
+    import VButton from '@/shared/UI/Button/VButton.vue'
 
     interface GameProps {
         rows?: number
         cols?: number
+    }
+
+    enum GameStatus {
+        ready = 'ready',
+        pause = 'pause',
+        end = 'end'
+    }
+
+    interface IActionOnStatus {
+        button: {
+            label: string
+            onClick: () => void
+        }
+        message: string | false
     }
 
     const props = withDefaults(defineProps<GameProps>(), {
@@ -41,7 +71,46 @@
         cols: 10
     })
     const tetris = useTetris(props.cols, props.rows)
-    onMounted(() => tetris.start())
+    const status = computed(() => {
+        if (tetris.isFinished.value === null) return GameStatus.ready
+        if (tetris.isFinished.value) return GameStatus.end
+        if (tetris.isFinished.value === false && tetris.isPause.value) return GameStatus.pause
+    })
+    const actionOnStatus = computed((): IActionOnStatus => {
+        switch (status.value) {
+            case GameStatus.ready:
+                return {
+                    button: {
+                        label: 'Start',
+                        onClick: () => {
+                            console.log('start')
+                            tetris.start()
+                        }
+                    },
+                    message: false
+                }
+            case GameStatus.pause:
+                return {
+                    button: {
+                        label: 'Continue',
+                        onClick: () => tetris.pause(false)
+                    },
+                    message: false
+                }
+            case GameStatus.end:
+                return {
+                    button: {
+                        label: 'Restart',
+                        onClick: () => {
+                            tetris.restart()
+                            tetris.start()
+                        }
+                    },
+                    message: 'Game Over'
+                }
+        }
+    })
+    // onMounted(() => tetris.start())
 </script>
 
 <style lang="scss" scoped>
@@ -56,9 +125,50 @@
         background: rgba(1, 22, 39, 0.84);
         box-shadow: 1px 5px 11px 0 rgba(2, 18, 27, 0.71) inset;
         overflow: hidden;
+        position: relative;
 
         :deep(table) {
             margin-bottom: -2px;
+        }
+
+        &-status {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 30%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 15px;
+
+            :not(.visibility) {
+                opacity: 0;
+                display: none;
+                transition: 0.3s;
+                transition-delay: 0.3s;
+            }
+
+            .visibility {
+                opacity: 1;
+                transition: 0.3s;
+            }
+
+            &-text {
+                width: 100%;
+                min-height: 50px;
+                border-radius: 8px;
+                box-shadow: inset 1px 5px 11px 0 rgba(2, 18, 27, 0.71);
+                background: rgba(1, 22, 39, 0.84);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                @include font(var(--fs-subtitle), var(--secondary-green));
+            }
+
+            &-button {
+                transition: 0.3s;
+            }
         }
 
         &-info {
