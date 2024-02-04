@@ -50,7 +50,6 @@
     })
 
     function changeStatus(status: GameStatus) {
-        console.log('change', status)
         switch (status) {
             case GameStatus.ready:
                 tetris.start()
