@@ -1,3 +1,3 @@
-import HomePage from './ui/testPage.vue'
+import TestPage from './ui/testPage.vue'
 
-export { HomePage }
+export { TestPage }

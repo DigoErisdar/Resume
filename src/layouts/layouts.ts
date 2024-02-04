@@ -1,4 +1,6 @@
-export type Layouts = 'default'
+export type Layouts = 'default' | 'page'
+
 export const AppLayoutToFileMap: Record<Layouts, string> = {
-    default: 'MainLayout.vue'
+    default: 'MainLayout.vue',
+    page: 'PageLayout.vue'
 }

@@ -15,6 +15,7 @@
     const { bp } = storeToRefs(useBaseStore())
     const urls = shallowRef([
         { src: '/', label: '_hello' },
+        { src: '/about/', label: '_about' },
         { src: '/test/', label: '_test' }
     ])
 </script>

@@ -2,6 +2,7 @@
     <div class="MainLayout">
         <VHeader :name="siteName" />
         <main class="content">
+            <VSidebar />
             <slot></slot>
         </main>
         <VFooter />
@@ -12,6 +13,7 @@
     import VFooter from '@/widgets/VFooter.vue'
     import VHeader from '@/widgets/VHeader.vue'
     import { useBaseStore } from '@/shared/store/useBaseStore.ts'
+    import VSidebar from '@/widgets/VSidebar.vue'
 
     const { siteName } = useBaseStore()
 </script>
@@ -27,8 +29,8 @@
         --height-header: 56px;
 
         main {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: auto 1fr;
             overflow: hidden;
             container-type: size;
             container-name: main;

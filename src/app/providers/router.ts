@@ -2,8 +2,9 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 import { getRouteMain } from '@/shared/const/router'
 import { loadLayoutMiddleware } from '@/app/providers/router/middleware'
-import IndexPage from '@/pages/IndexPage/ui/IndexPage.vue'
-import TestPage from '@/pages/testPage/ui/testPage.vue'
+import { IndexPage } from '@/pages/IndexPage'
+import { TestPage } from '@/pages/testPage'
+import { AboutPage } from '@/pages/aboutPage'
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -12,9 +13,17 @@ const routes: Array<RouteRecordRaw> = [
         component: IndexPage
     },
     {
-        path: '/test/',
+        path: '/test',
         name: 'test',
         component: TestPage
+    },
+    {
+        path: '/about',
+        name: 'about',
+        component: AboutPage,
+        meta: {
+            layout: 'page'
+        }
     }
 ]
 

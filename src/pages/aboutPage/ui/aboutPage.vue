@@ -1,13 +1,12 @@
 <template>
-    <aside class="sidebar">sidebar</aside>
+    <section class="about">about page</section>
 </template>
 
 <script setup lang="ts"></script>
 
 <style scoped lang="scss">
-    .sidebar {
-        width: var(--aside-width);
+    .about {
         height: 100%;
-        background: red;
+        background: var(--accent-orange);
     }
 </style>
