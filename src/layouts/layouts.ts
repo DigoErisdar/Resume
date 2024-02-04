@@ -1,6 +1,7 @@
-export type Layouts = 'default' | 'page'
+export enum Layouts {
+    default = 'default'
+}
 
 export const AppLayoutToFileMap: Record<Layouts, string> = {
-    default: 'MainLayout.vue',
-    page: 'PageLayout.vue'
+    [Layouts.default]: 'MainLayout.vue'
 }

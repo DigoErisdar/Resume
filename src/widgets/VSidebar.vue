@@ -1,5 +1,7 @@
 <template>
-    <aside class="sidebar">sidebar</aside>
+    <aside class="sidebar">
+        <slot></slot>
+    </aside>
 </template>
 
 <script setup lang="ts"></script>
@@ -8,6 +10,5 @@
     .sidebar {
         width: var(--aside-width);
         height: 100%;
-        background: red;
     }
 </style>

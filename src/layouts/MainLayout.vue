@@ -20,7 +20,7 @@
     .MainLayout {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 50px 1fr auto;
+        grid-template-rows: auto 1fr auto;
         background: var(--primary-bg);
         position: relative;
         --aside-width: 320px;

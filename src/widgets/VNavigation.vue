@@ -1,11 +1,13 @@
 <template>
     <nav class="navigation" :class="[{ isColumn }]">
         <ul>
-            <li v-for="(url, index) in urls" :key="url.src" :class="url.classes">
-                <slot :item="url" :index="index">
-                    <VLink v-bind="url" />
-                </slot>
-            </li>
+            <slot name="container">
+                <li v-for="(url, index) in urls" :key="url.src" :class="url.classes">
+                    <slot :item="url" :index="index">
+                        <VLink v-bind="url" />
+                    </slot>
+                </li>
+            </slot>
         </ul>
     </nav>
 </template>
@@ -15,7 +17,7 @@
     import VLink from '@/shared/UI/Link/VLink.vue'
 
     interface Props {
-        urls: Url[]
+        urls?: Url[]
         isColumn?: boolean
     }
 
@@ -33,6 +35,7 @@
                 flex-direction: column;
                 height: auto;
                 max-height: 100%;
+                min-height: 100%;
 
                 li {
                     width: 100%;

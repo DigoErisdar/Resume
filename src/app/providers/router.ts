@@ -4,7 +4,7 @@ import { getRouteMain } from '@/shared/const/router'
 import { loadLayoutMiddleware } from '@/app/providers/router/middleware'
 import { IndexPage } from '@/pages/IndexPage'
 import { TestPage } from '@/pages/testPage'
-import { AboutPage } from '@/pages/aboutPage'
+import { CodePage } from '@/pages/codePage'
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -18,12 +18,9 @@ const routes: Array<RouteRecordRaw> = [
         component: TestPage
     },
     {
-        path: '/about',
-        name: 'about',
-        component: AboutPage,
-        meta: {
-            layout: 'page'
-        }
+        path: '/code',
+        name: 'code',
+        component: CodePage
     }
 ]
 

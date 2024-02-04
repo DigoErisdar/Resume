@@ -33,7 +33,7 @@
             transform: translateX(0);
 
             &.close {
-                transform: translateX(-100%);
+                transform: translateX(calc(-100% - var(--width-scrollbar)));
             }
         }
 
