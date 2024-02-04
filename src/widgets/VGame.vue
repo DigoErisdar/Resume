@@ -1,6 +1,7 @@
 <template>
     <div class="container">
-        <div :class="style.VGame" class="game">
+        <div class="game">
+            <VGameStatus :status @change="changeStatus" v-if="status" />
             <TableWidget :matrix="tetris.game.matrix" />
         </div>
         <div>
@@ -28,8 +29,9 @@
 <script setup lang="ts">
     import useTetris from '@/shared/libs/Tetris/composables/useTetris.ts'
     import TableWidget from '@/shared/libs/Tetris/components/TableWidget.vue'
-    import style from '@/shared/libs/Tetris/components/VGame.module.scss'
-    import { onMounted } from 'vue'
+    import { computed } from 'vue'
+    import { GameStatus } from '@/features/GameStatus.ts'
+    import VGameStatus from '@/features/VGameStatus.vue'
 
     interface GameProps {
         rows?: number
@@ -41,7 +43,26 @@
         cols: 10
     })
     const tetris = useTetris(props.cols, props.rows)
-    onMounted(() => tetris.start())
+    const status = computed((): GameStatus => {
+        if (tetris.isFinished.value === null) return GameStatus.ready
+        if (tetris.isFinished.value) return GameStatus.end
+        if (tetris.isFinished.value === false && tetris.isPause.value) return GameStatus.pause
+    })
+
+    function changeStatus(status: GameStatus) {
+        switch (status) {
+            case GameStatus.ready:
+                tetris.start()
+                break
+            case GameStatus.pause:
+                tetris.pause(false)
+                break
+            case GameStatus.end:
+                tetris.restart()
+                tetris.start()
+                break
+        }
+    }
 </script>
 
 <style lang="scss" scoped>
@@ -52,10 +73,16 @@
     }
 
     .game {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
         border-radius: 8px;
         background: rgba(1, 22, 39, 0.84);
         box-shadow: 1px 5px 11px 0 rgba(2, 18, 27, 0.71) inset;
         overflow: hidden;
+        position: relative;
 
         :deep(table) {
             margin-bottom: -2px;

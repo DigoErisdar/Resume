@@ -9,6 +9,7 @@ import useSequence from '@/shared/libs/Tetris/composables/useSequence.ts'
 export default function useTetris(cols: number, rows: number, speed: number = 300) {
     let gameInterval: ReturnType<typeof setTimeout>
     const isPause = ref(false)
+    const isFinished = ref(null)
     const matrix = useMatrix()
     const game = reactive<Game>({
         rows,
@@ -113,6 +114,7 @@ export default function useTetris(cols: number, rows: number, speed: number = 30
     }
 
     async function start() {
+        isFinished.value = false
         setNewFigure()
         while (!game.currentFigure) {
             setNewFigure()
@@ -149,15 +151,18 @@ export default function useTetris(cols: number, rows: number, speed: number = 30
 
     function endGame() {
         stop()
+        isFinished.value = true
     }
 
     return {
+        game,
         figuresSequence,
         start,
-        game,
+        pause,
+        restart,
+        isFinished,
         isPause,
         move,
-        rotate,
-        pause
+        rotate
     }
 }

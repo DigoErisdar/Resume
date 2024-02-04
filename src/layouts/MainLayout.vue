@@ -9,8 +9,8 @@
 </template>
 
 <script setup lang="ts">
-    import BaseFooter from '@/widgets/BaseFooter.vue'
-    import BaseHeader from '@/widgets/BaseHeader.vue'
+    import BaseFooter from '@/widgets/VFooter.vue'
+    import BaseHeader from '@/widgets/VHeader.vue'
     import { shallowRef } from 'vue'
 
     const name = shallowRef('daniil-galkin.vue')
@@ -22,6 +22,7 @@
         grid-template-columns: 1fr;
         grid-template-rows: 50px 1fr auto;
         background: var(--primary-bg);
+        position: relative;
         --aside-width: 320px;
         --height-header: 56px;
 

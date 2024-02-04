@@ -13,5 +13,8 @@
 
     defineProps<{ name: string }>()
     const { bp } = storeToRefs(useBaseStore())
-    const urls = shallowRef([{ src: '/', label: '_hello' }])
+    const urls = shallowRef([
+        { src: '/', label: '_hello' },
+        { src: '/test/', label: '_test' }
+    ])
 </script>

@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-    import BaseNavigation from '@/widgets/BaseNavigation.vue'
+    import BaseNavigation from '@/widgets/VNavigation.vue'
     import { Url } from '@/shared/types/navigation.ts'
 
     interface Props {
@@ -42,9 +42,13 @@
                 border-bottom: 3px solid transparent;
             }
 
-            &:deep(.active),
-            &:deep(:hover) {
+            &:deep(.active) {
                 border-bottom-color: var(--accent-orange);
+            }
+
+            &:deep(.link:hover:not(.active)) {
+                background: var(--color-line);
+                transition: 0.3s;
             }
         }
     }

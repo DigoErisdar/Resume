@@ -1,6 +1,9 @@
 <template>
     <header class="header">
-        <div class="header-top" @click="isOpenMenu = !isOpenMenu">{{ name }}</div>
+        <div class="header-top">
+            <span>{{ name }}</span>
+            <VHamburger v-model="isOpenMenu" class="header-hamburger" />
+        </div>
         <div class="header-navigation" :class="{ close: !isOpenMenu }">
             <BaseNavigation :urls="urls" is-column @click="isOpenMenu = false" />
         </div>
@@ -8,9 +11,10 @@
 </template>
 
 <script setup lang="ts">
-    import BaseNavigation from '@/widgets/BaseNavigation.vue'
+    import BaseNavigation from '@/widgets/VNavigation.vue'
     import { Url } from '@/shared/types/navigation.ts'
     import { ref } from 'vue'
+    import VHamburger from '@/features/VHamburger.vue'
 
     const isOpenMenu = ref(false)
     defineProps<{ urls: Url[]; name: string }>()
@@ -19,9 +23,10 @@
 <style scoped lang="scss">
     .header {
         &-navigation {
-            width: 100%;
             height: calc(100% - var(--height-header));
             position: absolute;
+            left: 0;
+            right: 0;
             z-index: 1000;
             background: var(--primary-bg);
             transition: 0.5s;
@@ -38,6 +43,12 @@
             align-items: center;
             padding: var(--padding);
             border-bottom: 1px solid var(--color-line);
+            justify-content: space-between;
+        }
+
+        &-hamburger {
+            width: 25px;
+            height: 100%;
         }
     }
 </style>

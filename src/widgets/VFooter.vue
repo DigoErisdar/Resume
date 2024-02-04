@@ -6,14 +6,19 @@
 </template>
 
 <script setup lang="ts">
-    import BaseNavigation from '@/widgets/BaseNavigation.vue'
+    import BaseNavigation from '@/widgets/VNavigation.vue'
     import { shallowRef } from 'vue'
     import { Url } from '@/shared/types/navigation.ts'
 
     const urls = shallowRef<Url[]>([
-        { label: 'tg', src: 'https://t.me/DigoErisdar', target: '_blank' },
+        { label: 'Tg', src: 'https://t.me/DigoErisdar', target: '_blank' },
         {
-            label: '@DigoErisdar',
+            label: 'hh',
+            src: 'https://hh.ru/resume/d7627bb3ff0be970ab0039ed1f6d4d48794162',
+            target: '_blank'
+        },
+        {
+            label: 'GitHub',
             src: 'https://github.com/DigoErisdar',
             target: '_blank',
             classes: ['right']
