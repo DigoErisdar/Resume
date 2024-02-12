@@ -1,22 +1,24 @@
 <template>
-    <highlightjs
-        :code="value"
-        class="code"
-    />
+    <pre class="code">
+      <code v-html="code" class="hljs" :class="props.language"/>
+    </pre>
 </template>
 
 <script setup lang="ts">
-    import 'highlight.js/lib/common'
+    import { computed } from 'vue'
+    import hljs from 'highlight.js'
 
     interface Props {
         value: string
+        language: 'js' | 'python'
     }
 
-    defineProps<Props>()
+    const props = defineProps<Props>()
+    const code = computed(() => hljs.highlight(props.value, { language: props.language }).value)
 </script>
 
 <style lang="scss">
-    pre.code {
+    .code {
         code.hljs {
             padding: 0;
             background: none;
@@ -25,7 +27,8 @@
             line-height: 1.5;
         }
 
-        .hljs-type {
+        .hljs-type,
+        .hljs-keyword {
             color: var(--secondary-blue);
         }
 
