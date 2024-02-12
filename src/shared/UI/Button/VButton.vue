@@ -5,7 +5,6 @@
 </template>
 
 <script setup lang="ts">
-    import { TargetEvent } from '@/shared/types/types.ts'
     import { Color } from '@/shared/types/Color.ts'
 
     interface Props {
@@ -13,14 +12,14 @@
         color?: Color
     }
 
-    const props = withDefaults(defineProps<Props>(), {
+    withDefaults(defineProps<Props>(), {
         color: Color.primary
     })
     const emit = defineEmits<{
-        (e: 'click', data: { event: TargetEvent<HTMLButtonElement> }): void
+        (e: 'click', data: { event: Event }): void
     }>()
 
-    function onClick(event: TargetEvent<HTMLButtonElement>) {
+    function onClick(event: Event) {
         emit('click', { event })
     }
 </script>

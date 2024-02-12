@@ -1,26 +1,26 @@
 <template>
     <div class="MainLayout">
-        <BaseHeader :name />
+        <VHeader :name="siteName" />
         <main class="content">
             <slot></slot>
         </main>
-        <BaseFooter />
+        <VFooter />
     </div>
 </template>
 
 <script setup lang="ts">
-    import BaseFooter from '@/widgets/VFooter.vue'
-    import BaseHeader from '@/widgets/VHeader.vue'
-    import { shallowRef } from 'vue'
+    import VFooter from '@/widgets/VFooter.vue'
+    import VHeader from '@/widgets/VHeader.vue'
+    import { useBaseStore } from '@/shared/store/useBaseStore.ts'
 
-    const name = shallowRef('daniil-galkin.vue')
+    const { siteName } = useBaseStore()
 </script>
 
 <style scoped lang="scss">
     .MainLayout {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 50px 1fr auto;
+        grid-template-rows: auto 1fr auto;
         background: var(--primary-bg);
         position: relative;
         --aside-width: 320px;

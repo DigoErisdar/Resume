@@ -1,12 +1,12 @@
 <template>
     <header class="header">
         <div class="header-name">{{ name }}</div>
-        <BaseNavigation :urls="urls" class="header-navigation" />
+        <VNavigation :urls="urls" class="header-navigation" />
     </header>
 </template>
 
 <script setup lang="ts">
-    import BaseNavigation from '@/widgets/VNavigation.vue'
+    import VNavigation from '@/widgets/VNavigation.vue'
     import { Url } from '@/shared/types/navigation.ts'
 
     interface Props {

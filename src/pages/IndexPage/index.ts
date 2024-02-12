@@ -1,3 +1,3 @@
-import HomePage from './ui/IndexPage.vue'
+import IndexPage from './ui/IndexPage.vue'
 
-export { HomePage }
+export { IndexPage }

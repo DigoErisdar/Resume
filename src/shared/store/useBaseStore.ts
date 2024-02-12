@@ -1,9 +1,11 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { ref, shallowRef } from 'vue'
 
 export const useBaseStore = defineStore('base', () => {
     const bp = ref(null)
+    const siteName = shallowRef('daniil-galkin.vue')
     return {
-        bp
+        bp,
+        siteName
     }
 })

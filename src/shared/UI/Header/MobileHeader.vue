@@ -5,13 +5,13 @@
             <VHamburger v-model="isOpenMenu" class="header-hamburger" />
         </div>
         <div class="header-navigation" :class="{ close: !isOpenMenu }">
-            <BaseNavigation :urls="urls" is-column @click="isOpenMenu = false" />
+            <VNavigation :urls="urls" is-column @click="isOpenMenu = false" />
         </div>
     </header>
 </template>
 
 <script setup lang="ts">
-    import BaseNavigation from '@/widgets/VNavigation.vue'
+    import VNavigation from '@/widgets/VNavigation.vue'
     import { Url } from '@/shared/types/navigation.ts'
     import { ref } from 'vue'
     import VHamburger from '@/features/VHamburger.vue'
@@ -33,7 +33,7 @@
             transform: translateX(0);
 
             &.close {
-                transform: translateX(-100%);
+                transform: translateX(calc(-100% - var(--width-scrollbar)));
             }
         }
 

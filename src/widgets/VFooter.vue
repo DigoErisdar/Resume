@@ -1,12 +1,12 @@
 <template>
     <footer class="footer">
         <span class="footer-label">find in me:</span>
-        <BaseNavigation :urls="urls" />
+        <VNavigation :urls="urls" />
     </footer>
 </template>
 
 <script setup lang="ts">
-    import BaseNavigation from '@/widgets/VNavigation.vue'
+    import VNavigation from '@/widgets/VNavigation.vue'
     import { shallowRef } from 'vue'
     import { Url } from '@/shared/types/navigation.ts'
 

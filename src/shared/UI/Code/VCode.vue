@@ -18,13 +18,18 @@
 </script>
 
 <style lang="scss">
-    .code {
-        code.hljs {
-            padding: 0;
-            background: none;
-            color: var(--secondary-white);
+    pre.code {
+        .hljs {
             overflow: hidden;
             line-height: 1.5;
+            padding: 0;
+            background: none;
+        }
+
+        .hljs,
+        .hljs-params,
+        .hljs-property {
+            color: var(--secondary-white);
         }
 
         .hljs-type,
@@ -38,8 +43,18 @@
         .hljs-variable,
         .hljs-template-variable,
         .hljs-link,
+        .hljs-keyword,
         .hljs-selector-attr {
             color: var(--accent-orange);
+        }
+
+        .hljs-title {
+            color: var(--secondary-blue);
+        }
+
+        .hljs-built_in,
+        .hljs-literal {
+            color: var(--accent-green);
         }
     }
 </style>
