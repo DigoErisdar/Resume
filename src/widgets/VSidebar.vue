@@ -10,5 +10,7 @@
     .sidebar {
         width: var(--aside-width);
         height: 100%;
+        border-right: 1px solid var(--color-line);
+        box-sizing: content-box;
     }
 </style>
