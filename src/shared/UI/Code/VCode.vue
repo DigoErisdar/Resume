@@ -1,17 +1,20 @@
 <template>
-    <highlightjs :code="value" class="code" />
+    <pre class="code">
+      <code v-html="code" class="hljs" :class="props.language"/>
+    </pre>
 </template>
 
 <script setup lang="ts">
-    //TODO: Поставить highlight без vue-plugin
-    import 'highlight.js/lib/common'
+    import { computed } from 'vue'
+    import hljs from 'highlight.js'
 
     interface Props {
         value: string
-        language?: 'js' | 'python'
+        language: 'js' | 'python'
     }
 
-    defineProps<Props>()
+    const props = defineProps<Props>()
+    const code = computed(() => hljs.highlight(props.value, { language: props.language }).value)
 </script>
 
 <style lang="scss">
@@ -29,7 +32,8 @@
             color: var(--secondary-white);
         }
 
-        .hljs-type {
+        .hljs-type,
+        .hljs-keyword {
             color: var(--secondary-blue);
         }
 
