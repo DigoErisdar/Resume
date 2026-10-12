@@ -1,0 +1,68 @@
+@use "../tokens" as *;
+
+.pet-projects {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid $color-ink;
+}
+.pet-projects h2 {
+  margin: 0 0 24px;
+  color: $color-ink;
+  font-size: 32px;
+  font-weight: 550;
+  line-height: 1.2;
+  letter-spacing: -0.045em;
+}
+.pet-project-card {
+  padding: 20px;
+  border: 1px solid $color-project-border;
+  border-left: 3px solid $color-border-strong;
+  background: $color-project;
+}
+.pet-project-card h3 {
+  margin: $space-sm 0 0;
+  color: $color-ink;
+  font-size: 21px;
+  font-weight: 550;
+  line-height: 1.35;
+  letter-spacing: -0.03em;
+}
+.pet-project-card p {
+  margin: $space-md 0 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.pet-project-result {
+  padding: $space-md $space-lg;
+  border-left: 3px solid $color-success;
+  background: $color-success-soft;
+  color: $color-success-dark;
+}
+.pet-project-link {
+  display: inline-block;
+  margin-top: $space-lg;
+  color: $color-secondary-text;
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-color: $color-border-strong;
+  text-underline-offset: 5px;
+}
+.pet-project-link:hover {
+  color: $color-success;
+}
+.pet-project-link span {
+  color: $color-success;
+}
+
+@media (max-width: 550px) {
+  .pet-projects {
+    padding-top: 24px;
+  }
+  .pet-projects h2 {
+    font-size: 28px;
+  }
+  .pet-project-card {
+    padding: 18px;
+  }
+}

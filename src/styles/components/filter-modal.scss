@@ -1,0 +1,108 @@
+@use "../tokens" as *;
+
+@media (max-width: 800px) {
+  html.filters-modal-open,
+  body.filters-modal-open {
+    overflow: hidden;
+    scrollbar-gutter: auto;
+  }
+  .experience-area > .mobile-filter-trigger {
+    position: sticky;
+    top: 8px;
+    z-index: 30;
+    align-self: center;
+  }
+  .mobile-filter-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 34px;
+    padding: 6px 10px;
+    border: 1px solid $color-border-strong;
+    background: $color-background;
+    color: $color-secondary-text;
+    box-shadow: 3px 3px 0 $color-shadow-solid;
+    font-size: 11px;
+    font-weight: 650;
+  }
+  .mobile-filter-trigger span {
+    min-width: 18px;
+    padding: 1px 5px;
+    background: $color-success;
+    color: $color-white;
+    font-size: 10px;
+    text-align: center;
+  }
+  .side-column {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: $color-background;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 0.2s ease,
+      visibility 0s linear 0.2s;
+  }
+  .side-column.mobile-filters-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 0s;
+  }
+  .side-column .filter-panel {
+    position: static;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0 18px;
+    overflow: auto;
+    overscroll-behavior: contain;
+    background: $color-background;
+    transform: translateY(16px);
+    transition: transform 0.25s ease;
+  }
+  .mobile-filters-open .filter-panel {
+    transform: translateY(0);
+  }
+  .filter-panel .filter-heading {
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    flex-wrap: nowrap;
+    gap: 8px;
+    height: 40px;
+    margin: 0 -18px;
+    padding: 4px 18px;
+    background: $color-background;
+    border-bottom: 1px solid $color-line;
+  }
+  .filter-panel .filter-heading h2 {
+    margin: 0;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .mobile-filter-toggle {
+    display: grid;
+    width: 32px;
+    height: 32px;
+    margin-left: auto;
+    place-items: center;
+    border: 1px solid $color-border-strong;
+    background: transparent;
+    color: $color-secondary-text;
+    font-size: 23px;
+    line-height: 1;
+  }
+  .mobile-filter-content {
+    padding-bottom: max(18px, env(safe-area-inset-bottom));
+  }
+}

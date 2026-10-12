@@ -1,0 +1,37 @@
+@use "../tokens" as *;
+
+.skill-popover {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 200;
+  width: min(300px, calc(100vw - 24px));
+  padding: 13px 14px;
+  border: 1px solid $color-border-strong;
+  background: $color-project;
+  box-shadow: 4px 4px 0 $color-shadow;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  pointer-events: none;
+  transition:
+    opacity 0.12s,
+    transform 0.12s,
+    visibility 0.12s;
+}
+.skill-popover.show {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+.skill-popover strong {
+  display: block;
+  color: $color-ink;
+  font-size: 13px;
+}
+.skill-popover p {
+  margin: 5px 0 0;
+  color: $color-text;
+  font-size: 12px;
+  line-height: 1.45;
+}
