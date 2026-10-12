@@ -1,0 +1,325 @@
+@use "../tokens" as *;
+
+.resume-header {
+  padding: 64px 0 46px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 54px;
+}
+.profile-main,
+.profile-contact-panel {
+  min-width: 0;
+}
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  font:
+    10px/1.3 ui-monospace,
+    monospace;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: $color-ink;
+}
+.hero-eyebrow:before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: $color-accent;
+}
+.resume-header h1 {
+  margin: 0;
+  color: $color-ink;
+  font-size: clamp(56px, 7.8vw, 105px);
+  line-height: 0.98;
+  letter-spacing: -0.065em;
+  font-weight: 650;
+}
+.resume-header h1 > span {
+  display: block;
+}
+.resume-header h1 .name-surname {
+  position: relative;
+  width: fit-content;
+  font:
+    italic 400 1.1em/1.02 Georgia,
+    "Times New Roman",
+    serif;
+  letter-spacing: -0.07em;
+}
+.name-mark {
+  position: absolute;
+  left: calc(100% + 24px);
+  top: 10%;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.48em;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 0;
+  color: $color-accent;
+}
+.resume-role {
+  margin-top: 22px;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: $color-ink;
+}
+.profile-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 11px;
+  font-size: 12px;
+  color: $color-muted;
+}
+.profile-meta span + span:before {
+  content: "·";
+  margin-right: 8px;
+}
+.resume-kicker {
+  margin-top: 32px;
+  color: $color-muted;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.resume-summary {
+  max-width: 640px;
+  margin: 10px 0 0;
+  color: $color-text;
+  font-size: 16px;
+  line-height: 1.8;
+}
+.career-direction {
+  margin-top: 20px;
+  padding-left: 14px;
+  border-left: 2px solid $color-success;
+}
+.career-direction > span {
+  display: block;
+  color: $color-muted;
+  font-size: 11px;
+  font-weight: 600;
+}
+.career-direction p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.profile-preferences {
+  display: grid;
+  gap: 8px;
+  margin: 24px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid $color-line;
+}
+.profile-preferences > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+  font-size: 13px;
+}
+.profile-preferences dt {
+  color: $color-muted;
+  font-size: 11px;
+}
+.profile-preferences dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.relocation-emphasis {
+  text-decoration: underline;
+  text-decoration-color: $color-success;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+.profile-contact-panel {
+  align-self: start;
+}
+.candidate-photo {
+  margin: 0 auto 24px;
+  width: 156px;
+}
+.candidate-photo-slot {
+  aspect-ratio: 4/5;
+  border: 1px solid $color-border-strong;
+  background: $color-soft;
+  box-shadow: 6px 6px 0 $color-shadow-solid;
+}
+.candidate-photo-slot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.candidate-photo figcaption {
+  margin-top: 13px;
+  text-align: center;
+  font:
+    10px/1.5 ui-monospace,
+    monospace;
+  color: $color-muted;
+}
+.profile-search-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 0 18px;
+  font-size: 11px;
+  color: $color-success;
+  font-weight: 500;
+  text-align: center;
+}
+.profile-search-status i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $color-success;
+  box-shadow: 0 0 0 4px $color-success-soft;
+}
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: $color-ink;
+  border-bottom: 1px solid $color-border-strong;
+  padding-bottom: 4px;
+  font-size: 13px;
+}
+.contact-link:hover {
+  color: $color-success;
+  border-color: $color-success;
+}
+@media (max-width: 1000px) {
+  .resume-header {
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 30px;
+  }
+  .resume-header h1 {
+    font-size: 76px;
+  }
+  .name-mark {
+    left: calc(100% + 14px);
+  }
+}
+@media (max-width: 800px) {
+  .resume-header {
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 40px;
+    gap: 24px;
+  }
+  .resume-header h1 {
+    font-size: clamp(58px, 10vw, 85px);
+  }
+  .profile-contact-panel {
+    display: grid;
+    grid-template-columns: 130px minmax(0, 1fr);
+    gap: 10px 24px;
+    padding-top: 22px;
+    border-top: 1px solid $color-line;
+  }
+  .candidate-photo {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+    width: 130px;
+  }
+  .profile-preferences {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    align-self: start;
+  }
+  .profile-search-status {
+    grid-column: 1/-1;
+    grid-row: 2;
+    margin: 12px 0 0;
+  }
+  .contacts {
+    grid-column: 1/-1;
+    grid-row: 3;
+    margin: 0;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+  }
+}
+@media (max-width: 550px) {
+  .resume-header {
+    padding: 32px 0;
+    gap: 22px;
+  }
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.07em;
+    margin-bottom: 20px;
+  }
+  .resume-header h1 {
+    font-size: clamp(48px, 13vw, 68px);
+    line-height: 1.02;
+  }
+  .resume-header h1 .name-surname {
+    font-size: 1.08em;
+  }
+  .name-mark {
+    left: calc(100% + 10px);
+    font-size: 0.4em;
+    top: 16%;
+  }
+  .resume-role {
+    margin-top: 18px;
+    font-size: 18px;
+  }
+  .profile-meta {
+    font-size: 13px;
+    margin-top: 10px;
+  }
+  .resume-kicker {
+    margin-top: 24px;
+  }
+  .resume-summary {
+    line-height: 1.75;
+  }
+  .profile-preferences {
+    gap: 12px;
+  }
+  .profile-preferences > div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+    font-size: 14px;
+  }
+  .profile-preferences dt {
+    font-size: 12px;
+  }
+  .profile-contact-panel {
+    grid-template-columns: 104px minmax(0, 1fr);
+    gap: 8px 18px;
+  }
+  .candidate-photo {
+    width: 104px;
+  }
+  .candidate-photo figcaption {
+    font-size: 9px;
+    margin-top: 10px;
+  }
+  .profile-search-status {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .contact-link {
+    font-size: 12px;
+    overflow-wrap: anywhere;
+  }
+}

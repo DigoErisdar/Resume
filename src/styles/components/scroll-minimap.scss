@@ -1,0 +1,106 @@
+@use "../tokens" as *;
+
+.scroll-minimap {
+  position: fixed;
+  top: 50%;
+  left: max(6px, calc((100vw - #{$max}) / 2 - 52px));
+  z-index: 40;
+  display: none;
+  width: 34px;
+  transform: translateY(-50%);
+}
+.scroll-minimap button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 34px;
+  height: 16px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.scroll-minimap button::after {
+  content: attr(data-label);
+  position: absolute;
+  left: calc(100% + 8px);
+  top: 50%;
+  padding: 5px 8px;
+  transform: translate(4px, -50%);
+  background: $color-ink;
+  color: $color-card;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.25;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+.scroll-minimap button:hover::after,
+.scroll-minimap button:focus-visible::after {
+  transform: translate(0, -50%);
+  opacity: 1;
+}
+.scroll-minimap button span {
+  display: block;
+  width: 30px;
+  height: 2px;
+  background: $color-line;
+  transition:
+    width 0.18s ease,
+    height 0.18s ease,
+    background-color 0.18s ease;
+}
+.scroll-minimap .scroll-minimap-level-2 span {
+  width: 16px;
+  margin-left: 8px;
+}
+.scroll-minimap button:hover span,
+.scroll-minimap button:focus-visible span {
+  background: $color-border-strong;
+}
+.scroll-minimap button.is-past span {
+  background: $color-muted;
+}
+.scroll-minimap button.is-active span {
+  background: $color-success;
+}
+
+@media (min-width: 860px) and (max-width: 1000px) and (min-height: 620px) {
+  .scroll-minimap {
+    left: 3px;
+    display: block;
+    width: 22px;
+  }
+  .scroll-minimap button {
+    width: 22px;
+  }
+  .scroll-minimap button span {
+    width: 20px;
+  }
+  .scroll-minimap .scroll-minimap-level-2 span {
+    width: 10px;
+    margin-left: 5px;
+  }
+}
+
+@media (min-width: 1001px) and (min-height: 620px) {
+  .scroll-minimap {
+    display: block;
+  }
+}
+
+@media print {
+  .scroll-minimap {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-minimap button span,
+  .scroll-minimap button::after {
+    transition: none;
+  }
+}
