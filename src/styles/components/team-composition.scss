@@ -1,0 +1,87 @@
+@use "../tokens" as *;
+
+.team-composition {
+  margin: 16px 0 0;
+}
+.team-composition-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 9px;
+}
+.team-composition-heading strong {
+  color: $color-ink;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.team-composition-bar {
+  display: flex;
+  gap: 2px;
+  width: 100%;
+  height: 34px;
+}
+.team-composition-segment {
+  display: grid;
+  place-items: center;
+  flex-basis: 0;
+  min-width: 20px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: $color-white;
+  font:
+    600 12px/1 ui-monospace,
+    monospace;
+  transition: opacity 0.2s ease;
+}
+.team-composition-bar.has-highlight .team-composition-segment {
+  opacity: 0.2;
+}
+.team-composition-bar.has-highlight .team-composition-segment.is-highlighted {
+  opacity: 1;
+}
+.role-chips > .team-role {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3px;
+  padding: 4px 7px;
+  border: 1px solid;
+  border-radius: 0;
+  background: transparent;
+  font:
+    11px/1.5 ui-monospace,
+    monospace;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.role-chips > .team-role:hover,
+.role-chips > .team-role:focus-within {
+  background: $color-success-soft;
+}
+.team-role-marker {
+  width: 10px;
+  height: 6px;
+  margin-right: 3px;
+  flex-shrink: 0;
+}
+.role-chips.has-highlight > .team-role {
+  opacity: 0.2;
+}
+.role-chips.has-highlight > .team-role.is-highlighted {
+  opacity: 1;
+}
+@media (max-width: 800px) {
+  .role-chips > .team-role {
+    min-height: 32px;
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 550px) {
+  .team-composition-bar {
+    height: 32px;
+  }
+}

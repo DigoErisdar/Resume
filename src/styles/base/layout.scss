@@ -1,0 +1,72 @@
+@use "../tokens" as *;
+
+.resume-wrap {
+  max-width: $max;
+  margin: 0 auto 70px;
+  padding: 0 44px;
+}
+.resume-paper {
+  overflow: visible;
+}
+.resume-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  column-gap: 58px;
+  overflow-anchor: none;
+}
+.resume-grid > * {
+  min-width: 0;
+}
+.experience-area {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+.experience-area > .experience-intro,
+.experience-area > #experienceList {
+  grid-column: 1 / -1;
+}
+.experience-area > .experience-intro,
+.experience-area > .mobile-filter-trigger {
+  grid-row: 1;
+}
+.experience-area > .mobile-filter-trigger {
+  grid-column: 2;
+}
+.main-column,
+.side-column {
+  padding-top: 26px;
+}
+.side-column {
+  position: relative;
+  align-self: stretch;
+}
+#about,
+#skills,
+#contacts,
+.experience-intro {
+  scroll-margin-top: 20px;
+}
+@media (max-width: 1000px) {
+  .resume-wrap {
+    padding: 0 28px;
+  }
+  .resume-grid {
+    grid-template-columns: minmax(0, 1fr) 240px;
+    column-gap: 30px;
+  }
+}
+@media (max-width: 800px) {
+  .resume-grid {
+    display: block;
+  }
+  .main-column {
+    width: 100%;
+    padding-top: 24px;
+  }
+}
+@media (max-width: 550px) {
+  .resume-wrap {
+    padding: 0 18px;
+    margin-bottom: 40px;
+  }
+}

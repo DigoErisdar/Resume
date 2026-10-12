@@ -1,0 +1,116 @@
+@use "../tokens" as *;
+
+.resume-end {
+  margin-top: 40px;
+  padding: 28px 0 0;
+  border: 0;
+  border-top: 1px solid $color-ink;
+  border-radius: 0;
+  background: transparent;
+  color: $color-ink;
+}
+
+.resume-end:after {
+  display: none;
+}
+
+.resume-end h2 {
+  margin: 0 0 24px;
+  font-size: 32px;
+  font-weight: 550;
+  line-height: 1.2;
+  letter-spacing: -0.045em;
+}
+
+.contact-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.contact-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  fill: $color-ink;
+}
+.contact-service {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contact-service .contact-icon {
+  width: 22px;
+  height: 22px;
+  flex-basis: 22px;
+}
+.contact-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 0;
+  border-top: 1px solid $color-line;
+  border-bottom: 1px solid $color-line;
+  color: $color-ink;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+.contact-links small {
+  display: block;
+  margin-bottom: 5px;
+  color: $color-muted;
+  font-size: 11px;
+}
+.contact-links b {
+  font-size: 16px;
+  font-weight: 550;
+  overflow-wrap: anywhere;
+}
+.contact-arrow {
+  color: $color-success;
+  font-size: 24px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+.contact-links a:hover {
+  color: $color-success;
+  border-color: $color-success;
+}
+.contact-links a:hover .contact-arrow {
+  transform: translate(2px, -2px);
+}
+.resume-meta {
+  margin-top: 24px;
+  color: $color-muted;
+  font:
+    10px/1.5 ui-monospace,
+    monospace;
+}
+
+@media (max-width: 550px) {
+  .resume-end {
+    padding: 24px 0 0;
+  }
+  .resume-end h2 {
+    font-size: 28px;
+  }
+  .contact-links {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .contact-links a {
+    min-height: 76px;
+  }
+  .contact-links a + a {
+    border-top: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-links a,
+  .contact-arrow {
+    transition: none;
+  }
+}

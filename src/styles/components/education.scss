@@ -1,0 +1,86 @@
+@use "../tokens" as *;
+
+.education {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid $color-ink;
+}
+.education h2 {
+  margin: 0 0 24px;
+  color: $color-ink;
+  font-size: 32px;
+  font-weight: 550;
+  line-height: 1.2;
+  letter-spacing: -0.045em;
+}
+.education-entry {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 0;
+  border-top: 1px solid $color-line;
+  border-bottom: 1px solid $color-line;
+}
+.education-details {
+  min-width: 0;
+  padding-left: 14px;
+  border-left: 2px solid $color-success;
+}
+.education-details h3 {
+  margin: 0;
+  color: $color-ink;
+  font-size: 18px;
+  font-weight: 550;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+.education-details p {
+  margin: 7px 0 0;
+  color: $color-muted;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.education-year {
+  flex-shrink: 0;
+  text-align: right;
+}
+.education-year span {
+  display: block;
+  color: $color-muted;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.education-year time {
+  display: block;
+  margin-top: 4px;
+  color: $color-secondary-text;
+  font:
+    14px/1.5 ui-monospace,
+    monospace;
+}
+@media (max-width: 550px) {
+  .education {
+    padding-top: 24px;
+  }
+  .education h2 {
+    font-size: 28px;
+  }
+  .education-entry {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .education-details h3 {
+    font-size: 17px;
+  }
+  .education-year {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding-left: 16px;
+    text-align: left;
+  }
+  .education-year time {
+    margin: 0;
+  }
+}

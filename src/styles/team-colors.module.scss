@@ -1,0 +1,16 @@
+@use "tokens" as *;
+
+:export {
+  pm: #{$team-pm};
+  lead: #{$team-lead};
+  system: #{$team-system};
+  business: #{$team-business};
+  ml: #{$team-ml};
+  frontend: #{$team-frontend};
+  backend: #{$team-backend};
+  mobile: #{$team-mobile};
+  qa: #{$team-qa};
+  tester: #{$team-tester};
+  onec: #{$team-onec};
+  designer: #{$team-designer};
+}
